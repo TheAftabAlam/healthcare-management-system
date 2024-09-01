@@ -1,0 +1,31 @@
+mat-form-field {
+  width: calc(33.33% - 16px); /* Three fields per row with space in between */
+  margin-right: 16px; /* Space between fields */
+  flex: 1;
+}
+
+.dropdown-container {
+  display: flex;
+  gap: 16px; /* Adjust space between dropdowns as needed */
+  margin-bottom: 16px; /* Space below the dropdowns */
+}
+
+.button-container {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  margin-left: 8px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container mat-form-field {
+  flex-basis: calc(33.33% - 16px); /* Adjust width of fields for three per row */
+  margin-bottom: 16px;
+}

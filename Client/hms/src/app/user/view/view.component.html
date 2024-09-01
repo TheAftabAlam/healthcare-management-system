@@ -1,0 +1,61 @@
+<div class="user-detail-container">
+  <mat-card class="user-detail-card">
+    <mat-card-header>
+      <mat-card-title>{{ user?.firstName }} {{ user?.lastName }}</mat-card-title>
+      <mat-card-subtitle>
+        {{ user?.patientFlag ? 'Patient' : (user?.doctorFlag ? 'Doctor' : 'Staff') }}
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="user-details">
+        <div class="user-detail-field">
+          <span class="field-label">Email:</span>
+          <span class="field-value">{{ user?.email }}</span>
+        </div>
+        <div class="user-detail-field">
+          <span class="field-label">Phone Number:</span>
+          <span class="field-value">{{ user?.phoneNumber }}</span>
+        </div>
+        <div class="user-detail-field">
+          <span class="field-label">Date of Birth:</span>
+          <span class="field-value">{{ user?.dateOfBirth | date:'longDate' }}</span>
+        </div>
+        <div class="user-detail-field">
+          <span class="field-label">Emergency Contact:</span>
+          <span class="field-value">{{ user?.emergencyContact }}</span>
+        </div>
+        <div class="user-detail-field">
+          <span class="field-label">Status:</span>
+          <span class="field-value">{{ user?.status }}</span>
+        </div>
+        <div class="user-detail-field">
+          <span class="field-label">Addresses:</span>
+          <div class="address-list">
+            <div class="address-item" *ngFor="let address of user?.addresses">
+              <div class="address-detail">
+                <span class="detail-label">Street:</span> {{ address?.streetAddress || 'N/A' }}
+              </div>
+              <div class="address-detail">
+                <span class="detail-label">City:</span> {{ address?.city || 'N/A' }}
+              </div>
+              <div class="address-detail">
+                <span class="detail-label">State:</span> {{ address?.state || 'N/A' }}
+              </div>
+              <div class="address-detail">
+                <span class="detail-label">Postal Code:</span> {{ address?.postalCode || 'N/A' }}
+              </div>
+              <div class="address-detail">
+                <span class="detail-label">Country:</span> {{ address?.country || 'N/A' }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="goBack()">Back</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

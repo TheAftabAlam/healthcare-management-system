@@ -1,0 +1,30 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.flags-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.addresses-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.address-group {
+  border: 1px solid #e0e0e0;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}

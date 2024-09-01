@@ -1,0 +1,55 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.search-bar {
+  flex-grow: 1;
+  max-width: 80%; /* Ensure search bar width is adjusted */
+  margin-right: 16px;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+button {
+  display: flex;
+  align-items: center;
+}
+
+button mat-icon {
+  margin-right: 8px;
+}
+
+.add-button {
+  margin-left: 16px;
+  background-color: #00796b; /* Ensure visibility */
+  color: white;
+}
+
+.patient-table-container {
+  margin-top: 16px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-header-cell {
+  font-weight: bold;
+}
+
+
+.mat-icon-button {
+  margin-right: 8px;
+}
+
+/* Style for mat-menu items */
+.mat-menu-item {
+  display: flex;
+  align-items: center;
+}

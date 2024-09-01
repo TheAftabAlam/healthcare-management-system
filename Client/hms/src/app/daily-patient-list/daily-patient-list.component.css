@@ -1,0 +1,77 @@
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: flex-start; /* Align cards to the left */
+  padding: 16px;
+}
+
+.waiting-card {
+  width: 100%;
+  max-width: 350px; /* Adjusted width for better alignment */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+  background: #ffffff; /* Card background color */
+  border: 1px solid #e0e0e0; /* Light border for definition */
+}
+
+.waiting-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* Darker shadow on hover */
+  transform: translateY(-5px); /* Slight lift on hover */
+}
+
+mat-card-header {
+  background-color: #00796b; /* Vibrant blue background */
+  color: #ffffff; /* White text color */
+  padding: 16px;
+  margin: 20px;
+  border-radius: 8px 8px 0 0; /* Rounded top corners */
+}
+
+.token-label {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+mat-card-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 16px;
+  color: #333;
+}
+
+mat-card-subtitle {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0 16px;
+}
+
+mat-card-content {
+  padding: 16px;
+}
+
+.appointment-details {
+  margin-bottom: 16px;
+}
+
+.address-info p {
+  margin: 4px 0;
+  color: #333;
+}
+
+mat-card-actions {
+  padding: 8px 16px;
+  border-top: 1px solid #e0e0e0;
+}
+
+mat-card-actions button {
+  color: #ffffff;
+  background-color: #00796b; /* Primary button color */
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+mat-card-actions button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}

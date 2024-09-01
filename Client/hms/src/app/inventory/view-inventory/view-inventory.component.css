@@ -1,0 +1,71 @@
+/* Container for the entire user detail section */
+.user-detail-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  /* Styling the card that holds user details */
+  .user-detail-card {
+    width: 400px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Container for the user detail fields */
+  .user-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Styling for individual detail fields */
+  .user-detail-field {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  /* Styling the field label */
+  .field-label {
+    font-weight: bold;
+    color: #424242;
+  }
+  
+  /* Styling the field value */
+  .field-value {
+    color: #757575;
+    text-align: right;
+  }
+  
+  /* Styling the action buttons */
+  mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  /* Button styling */
+  button[mat-raised-button] {
+    min-width: 100px;
+    font-weight: bold;
+  }
+  
+  /* Additional media query for responsiveness */
+  @media (max-width: 480px) {
+    .user-detail-card {
+      width: 100%;
+      padding: 16px;
+    }
+  
+    .user-detail-field {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .field-value {
+      text-align: left;
+      margin-top: 4px;
+    }
+  }
+  

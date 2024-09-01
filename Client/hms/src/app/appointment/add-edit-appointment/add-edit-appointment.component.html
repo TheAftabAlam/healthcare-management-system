@@ -1,0 +1,61 @@
+<!-- add-edit-appointment.component.html -->
+<h2 mat-dialog-title>{{ appointment.id ? 'Edit' : 'Add' }} Appointment</h2>
+
+<mat-form-field appearance="fill">
+  <mat-label>Appointment Date</mat-label>
+  <input matInput [(ngModel)]="appointment.appointmentDate" [matDatepicker]="picker" name="appointmentDate">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+<div class="dropdown-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Patient</mat-label>
+    <mat-select [(ngModel)]="appointment.patientId" name="patientId">
+      <mat-option *ngFor="let patient of patients" [value]="patient.id">
+        {{ patient.firstName }} {{ patient.lastName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Doctor</mat-label>
+    <mat-select [(ngModel)]="appointment.doctorId" name="doctorId">
+      <mat-option *ngFor="let doctor of doctors" [value]="doctor.id">
+        {{ doctor.firstName }} {{ doctor.lastName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Appointment Type</mat-label>
+    <mat-select [(ngModel)]="appointment.appointmentType" name="appointmentType">
+      <mat-option *ngFor="let appointmentType of appointmentTypes" [value]="appointmentType">
+        {{ appointmentType }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+</div>
+
+<mat-form-field appearance="fill">
+  <mat-label>Reason for Visit</mat-label>
+  <input matInput [(ngModel)]="appointment.reasonForVisit" name="reasonForVisit">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Reminder Time</mat-label>
+  <input matInput [(ngModel)]="appointment.reminderTime" [matDatepicker]="reminderPicker" name="reminderTime">
+  <mat-datepicker-toggle matSuffix [for]="reminderPicker"></mat-datepicker-toggle>
+  <mat-datepicker #reminderPicker></mat-datepicker>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Cancellation Reason</mat-label>
+  <input matInput [(ngModel)]="appointment.cancellationReason" name="cancellationReason">
+</mat-form-field>
+
+<div class="button-container">
+  <button mat-raised-button color="primary" (click)="saveAppointment()">Save</button>
+  <button mat-button (click)="goBack()">Cancel</button>
+</div>

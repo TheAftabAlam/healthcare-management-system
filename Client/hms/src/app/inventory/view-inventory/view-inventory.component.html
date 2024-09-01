@@ -1,0 +1,41 @@
+<div class="user-detail-container">
+    <mat-card class="user-detail-card">
+      <!-- <mat-card-header>
+        <mat-card-title>{{ user?.firstName }} {{ user?.lastName }}</mat-card-title>
+        <mat-card-subtitle>
+          {{ user?.patientFlag ? 'Patient' : (user?.doctorFlag ? 'Doctor' : 'Staff') }}
+        </mat-card-subtitle>
+      </mat-card-header> -->
+  
+      <mat-card-content>
+        <div class="user-details">
+          <div class="user-detail-field">
+            <span class="field-label">Name:</span>
+            <span class="field-value">{{ inventory?.itemName }}</span>
+          </div>
+          <div class="user-detail-field">
+            <span class="field-label">Phone Number:</span>
+            <span class="field-value">{{ inventory?.itemCode }}</span>
+          </div>
+          <div class="user-detail-field">
+            <span class="field-label"> Price:</span>
+            <span class="field-value">{{ inventory?.price }}</span>
+          </div>
+          <div class="user-detail-field">
+            <span class="field-label">Quantity:</span>
+            <span class="field-value">{{ inventory?.quantity }}</span>
+          </div>
+          <div class="user-detail-field">
+            <span class="field-label">Status:</span>
+            <span class="field-value">{{ inventory?.status }}</span>
+          </div>
+        
+        </div>
+      </mat-card-content>
+  
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="goBack()">Back</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  

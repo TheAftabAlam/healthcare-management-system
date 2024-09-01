@@ -1,0 +1,29 @@
+<div class="card-container">
+    <mat-card class="waiting-card" *ngFor="let appointment of appointments">
+      <mat-card-header>
+        <div class="token-label">Token Number: {{ appointment.tokenNumber }}</div>
+      </mat-card-header>
+      <mat-card-title>{{ appointment.patient?.firstName || 'Unknown Patient' }}</mat-card-title>
+      <mat-card-subtitle>
+        <strong>Appointment Date:</strong> {{ appointment.appointmentDate | date: 'fullDate' }} 
+        {{ appointment.appointmentDate | date: 'shortTime' }}
+      </mat-card-subtitle>
+      <mat-card-content>
+        <div class="appointment-details">
+          <p><strong>Appointment Type:</strong> {{ appointment.appointmentType || 'Not Specified' }}</p>
+          <div class="address-info" *ngIf="appointment.patient?.addresses?.length">
+            <p><strong>City:</strong> {{ appointment.patient.addresses[0].city || 'City Not Available' }}</p>
+            <p><strong>State:</strong> {{ appointment.patient.addresses[0].state || 'State Not Available' }}</p>
+          </div>
+          <div *ngIf="!(appointment.patient?.addresses?.length)">
+            <p>No address available.</p>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click) = "changeType(appointment.id,'COMPLETED')">Mark as Completed</button>
+        <button mat-raised-button color="danger" (click) = "changeType(appointment.id,'CANCELLED')">Cancel</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  

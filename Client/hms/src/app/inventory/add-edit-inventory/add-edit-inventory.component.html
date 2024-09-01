@@ -1,0 +1,43 @@
+<h2 mat-dialog-title>{{ inventory.id ? 'Edit' : 'Add' }} Inventory</h2>
+
+<mat-form-field appearance="fill">
+  <mat-label>Item Name</mat-label>
+  <input matInput [(ngModel)]="inventory.itemName" name="itemName">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Item Code</mat-label>
+  <input matInput [(ngModel)]="inventory.itemCode" name="itemCode">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Quantity</mat-label>
+  <input matInput [(ngModel)]="inventory.quantity" name="quantity">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Price</mat-label>
+  <input matInput [(ngModel)]="inventory.price" name="price">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+    <mat-label>Expiry Date</mat-label>
+    <input matInput [(ngModel)]="inventory.expiryDate" [matDatepicker]="picker"  name="expiryDate">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Batch Number</mat-label>
+    <input matInput [(ngModel)]="inventory.batchNumber" name="batchNumber">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Location</mat-label>
+    <input matInput [(ngModel)]="inventory.location" name="location">
+  </mat-form-field>
+
+<div class="button-container">
+  <button mat-raised-button color="primary" (click)="saveInventory()">Save</button>
+  <button mat-button (click)="goBack()">Cancel</button>
+</div>
