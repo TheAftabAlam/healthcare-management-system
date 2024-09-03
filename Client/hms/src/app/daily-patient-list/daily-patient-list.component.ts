@@ -7,6 +7,8 @@ import {ChangeDetectionStrategy} from '@angular/core';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
+import { MatDialog } from '@angular/material/dialog';
+import { MyDialogComponentComponent } from '../my-dialog-component/my-dialog-component.component';
 
 @Component({
   selector: 'app-daily-patient-list',
@@ -19,6 +21,7 @@ export class DailyPatientListComponent implements OnInit {
 
   constructor(
     private appointmentService: AppointmentService,
+    public dialog: MatDialog 
   ) { }
 
   ngOnInit(): void {
@@ -31,7 +34,9 @@ export class DailyPatientListComponent implements OnInit {
     this.appointmentService.getAppointments(this.filterObject).subscribe({
       next: (response) => {
         this.appointments = response.data['appointments'].dataList;
-        console.log(this.appointments);
+        if(this.appointments && this.appointments.length==0){
+          this.openDialog()
+        }
       },
       error: (err) => {
         console.error('Error fetching appointments:', err);
@@ -52,6 +57,18 @@ export class DailyPatientListComponent implements OnInit {
         this.fetchTodaysAppointments();
       }
     })
+  }
+
+  openDialog() {
+    console.log(this.appointments.length===0);
+      const dialogRef = this.dialog.open(MyDialogComponentComponent, {
+        width: '250px',
+        data: { message: 'No Appointment Scheduled Today!',title: "Appointments" }
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+      });
   }
 
 }

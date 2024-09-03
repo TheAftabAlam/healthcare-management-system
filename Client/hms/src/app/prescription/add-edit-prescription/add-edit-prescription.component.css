@@ -1,0 +1,66 @@
+/* General form styling */
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form field styling */
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  /* Table styling */
+  .medicine-table {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  mat-header-cell, mat-cell {
+    padding: 8px;
+  }
+  
+  .mat-table {
+    border-collapse: collapse;
+  }
+  
+  /* Button container styling */
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  button.mat-raised-button {
+    background-color: #3f51b5;
+    color: white;
+  }
+  
+  button.mat-raised-button:hover {
+    background-color: #303f9f;
+  }
+  
+  button.mat-button {
+    background-color: #e0e0e0;
+  }
+  
+  button.mat-button:hover {
+    background-color: #bdbdbd;
+  }
+  
+  /* Responsive design adjustments */
+  @media (max-width: 600px) {
+    .button-container {
+      flex-direction: column;
+    }
+  
+    button {
+      margin-bottom: 10px;
+      width: 100%;
+    }
+  }
+  

@@ -1,0 +1,117 @@
+<form (ngSubmit)="onSubmit()" #prescriptionForm="ngForm">
+
+    <!-- Patient Dropdown -->
+    <mat-form-field appearance="fill">
+      <mat-label>Patient</mat-label>
+      <mat-select [(ngModel)]="prescription.patientId" name="patientId" required>
+        <mat-option *ngFor="let patient of patients" [value]="patient.id">
+          {{ patient.firstName }} {{ patient.lastName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <!-- Doctor Dropdown -->
+    <mat-form-field appearance="fill">
+      <mat-label>Doctor</mat-label>
+      <mat-select [(ngModel)]="prescription.doctorId" name="doctorId" required>
+        <mat-option *ngFor="let doctor of doctors" [value]="doctor.id">
+          {{ doctor.firstName }} {{ doctor.lastName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <!-- Prescription Date -->
+    <mat-form-field appearance="fill">
+      <mat-label>Prescription Date</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="prescription.prescriptionDate" name="prescriptionDate" required>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  
+    <!-- Status -->
+    <mat-form-field appearance="fill">
+      <mat-label>Status</mat-label>
+      <input matInput [(ngModel)]="prescription.status" name="status">
+    </mat-form-field>
+  
+    <!-- Blood Pressure -->
+    <mat-form-field appearance="fill">
+      <mat-label>Blood Pressure</mat-label>
+      <input matInput [(ngModel)]="prescription.bloodPressure" name="bloodPressure">
+    </mat-form-field>
+  
+    <!-- Blood Sugar -->
+    <mat-form-field appearance="fill">
+      <mat-label>Blood Sugar</mat-label>
+      <input matInput [(ngModel)]="prescription.bloodSugar" name="bloodSugar">
+    </mat-form-field>
+  
+    <!-- Note -->
+    <mat-form-field appearance="fill">
+      <mat-label>Note</mat-label>
+      <textarea matInput [(ngModel)]="prescription.note" name="note"></textarea>
+    </mat-form-field>
+    
+    <!-- Medicines Table -->
+    <mat-table [dataSource]="medicineList" class="medicine-table">
+  
+      <ng-container matColumnDef="inventory">
+        <mat-header-cell *matHeaderCellDef> Inventory </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-form-field appearance="fill">
+            <mat-select [(ngModel)]="element.inventoryId" name="inventoryId">
+              <mat-option *ngFor="let inventory of inventories" [value]="inventory.id">
+                {{ inventory.itemName }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="dose">
+        <mat-header-cell *matHeaderCellDef> Dose </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-form-field appearance="fill">
+            <input matInput [(ngModel)]="element.dosage" name="dose">
+          </mat-form-field>
+        </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="frequency">
+        <mat-header-cell *matHeaderCellDef> Frequency </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-form-field appearance="fill">
+            <input matInput [(ngModel)]="element.frequency" name="frequency">
+          </mat-form-field>
+        </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="duration">
+        <mat-header-cell *matHeaderCellDef> Duration </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-form-field appearance="fill">
+            <input matInput [(ngModel)]="element.duration" name="duration">
+          </mat-form-field>
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+        <mat-cell *matCellDef="let element; let i = index">
+          <button mat-raised-button color="warn" type="button" (click)="removeMedicine(i)">Remove</button>
+        </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+  
+    <button mat-raised-button color="accent" type="button" (click)="addMedicine()">Add Medicine</button>
+    
+   
+
+    <!-- Button Container -->
+    <div class="button-container">
+      <button mat-raised-button color="primary" type="submit">Save</button>
+      <button mat-button type="button" (click)="onCancel()">Cancel</button>
+    </div>
+</form>

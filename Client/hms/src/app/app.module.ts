@@ -43,7 +43,10 @@ import { InventoryComponent } from './inventory/inventory.component';
 import { AddEditInventoryComponent } from './inventory/add-edit-inventory/add-edit-inventory.component';
 import { ViewInventoryComponent } from './inventory/view-inventory/view-inventory.component';
 import { DailyPatientListComponent } from './daily-patient-list/daily-patient-list.component';
-import { MatProgressBarModule } from '@angular/material/progress-bar'; // Import MatProgressBarModule
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MyDialogComponentComponent } from './my-dialog-component/my-dialog-component.component';
+import { PrescriptionComponent } from './prescription/prescription.component';
+import { AddEditPrescriptionComponent } from './prescription/add-edit-prescription/add-edit-prescription.component'; // Import MatProgressBarModule
 
 
 
@@ -60,6 +63,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar'; // Import
     AddEditInventoryComponent,
     ViewInventoryComponent,
     DailyPatientListComponent,
+    MyDialogComponentComponent,
+    PrescriptionComponent,
+    AddEditPrescriptionComponent,
   ],
   imports: [
     BrowserModule,

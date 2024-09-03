@@ -9,6 +9,8 @@ import { InventoryComponent } from './inventory/inventory.component';
 import { AddEditInventoryComponent } from './inventory/add-edit-inventory/add-edit-inventory.component';
 import { ViewInventoryComponent } from './inventory/view-inventory/view-inventory.component';
 import { DailyPatientListComponent } from './daily-patient-list/daily-patient-list.component';
+import { PrescriptionComponent } from './prescription/prescription.component';
+import { AddEditPrescriptionComponent } from './prescription/add-edit-prescription/add-edit-prescription.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -21,7 +23,9 @@ const routes: Routes = [
   { path: 'inventory/edit/:id', component: AddEditInventoryComponent },
   { path: 'inventory/view/:id', component: ViewInventoryComponent },
   { path: 'daily-patient-list', component: DailyPatientListComponent },
-
+  { path: 'prescription', component: PrescriptionComponent },
+  { path: 'prescription/edit/:id', component: AddEditPrescriptionComponent },
+  { path: 'prescription/view/:id', component: AddEditPrescriptionComponent },
   { path: '**', redirectTo: '' } // Wildcard route for a 404 page or redirect to home
 ];
 
